@@ -31,5 +31,5 @@ const server = new GraphQLServer({
     schema,
     context: { prisma }
 })
-// Originally set at http://localhost:4000
+
 server.start(() => console.log('Server is running on http://localhost:4000'))
