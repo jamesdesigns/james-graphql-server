@@ -3,19 +3,25 @@ const { prisma } = require('./generated/prisma-client')
 // A `main` function so that we can use async/await
 async function main() {
 
+  // myPosts = [{
+  //   title: "Join SpaceX now and explore more exciting news"
+  // }, {
+  //   title: "Subscribe to SpaceX Weekly for great offers"
+  // }]
+
   // Create a new user with a new post
   const newUser = await prisma
     .createUser({
-      name: "James",
-      email: "james@prisma.io",
+      name: "Elon",
+      email: "elon@gmail.io",
       posts: {
         create: [{
-          title: "Join us for GraphQL Conf in 2019",
+          title: "Join SpaceX now and explore more exciting news",
           comments: {
-            create: [{bodyText: 'I love GraphQl Conf!'},{bodyText: 'I love cookie dough!'}]
+            create: [{bodyText:'I love the SpaceX program!'}, {bodyText:'Lets all fly to Mars'}]
           }
         }, {
-          title: "Subscribe to GraphQL Weekly for GraphQL news",
+          title: "Subscribe to SpaceX Weekly for great offers",
         }]
       },
     })

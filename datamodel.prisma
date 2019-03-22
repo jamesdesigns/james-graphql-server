@@ -17,19 +17,6 @@ type Post {
   comments: [Comment!]!
 }
 
-type launches {
-  id: ID!
-}
-
-type Rockets {
-id: ID! 
-}
-
-type Missions {
-id: ID!
-}
-
-
 type Comment {
   id: ID! @unique
   createdAt: DateTime!
@@ -37,4 +24,18 @@ type Comment {
   bodyText: String!
   createdBy: User
 }
+
+
+type Product {
+  id: ID! @unique
+  name: String!
+  price: Float!
+  color: String!
+  size: String!
+}
+
+
+
+
+
 
