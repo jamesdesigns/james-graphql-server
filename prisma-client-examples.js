@@ -3,36 +3,36 @@ const { prisma } = require('./generated/prisma-client')
 // A `main` function so that we can use async/await
 async function main() {
 
-  // Create a new user called `Alice`
-  const newUser = await prisma.createUser({ name: 'Alice' })
-  console.log(`Created new user: ${newUser.name} (ID: ${newUser.id})`)
+  // Create a new product called `Big Hoodie`
+  const newProduct = await prisma.createProduct({ name: 'Big Hoodie' })
+  console.log(`Created new product: ${newProduct.name} (ID: ${newProduct.id})`)
 
   // Read all users from the database and print them to the console
-  const allUsers = await prisma.users()
-  console.log(allUsers)
+  const allProducts = await prisma.products()
+  console.log(allProducts)
 
   const user = await prisma
-  .user({ id: 'cjsqtbyhu002o0839lmodshr9' })
-  console.log(user)
+  .product({ id: 'cjsqtbyhu002o0839lmodshr9' })
+  console.log(product)
 
-  const usersCalledAlice = await prisma
-  .users({
+  const productsCalledBigHoodie = await prisma
+  .products({
     where: {
-      name: 'Alice'
+      name: 'Big Hoodie'
     }
-  })
-  console.log(usersCalledAlice)
+  })ß
+  console.log(productssCalledBigHoodie)
 
-  const updatedUser = await prisma
-  .updateUser({
+  const updatedProduct = await prisma
+  .updateProduct({
     where: { id: 'cjsqtzafr003u0839o2yw0kzf' },
-    data: { name: 'Bobby' }
+    data: { name: 'Biggie' }
   })
-  console.log(updatedUser)
+  console.log(updatedProduct)
 
-  const deletedUser = await prisma
-  .deleteUser({ id: 'cjsqtf58800370839sihzdlpz' })
-  console.log(deletedUser)
+  const deletedProduct = await prisma
+  .deleteProduct({ id: 'cjsqtf58800370839sihzdlpz' })
+  console.log(deletedProduct)
 }
 
 main().catch(e => console.error(e))

@@ -1,6 +1,4 @@
-{
-    "data": {
-      "products": [
+module.exports.spacexproducts= [
         {
             "name": "Active Track Jacket",
             "price": 40,
@@ -152,5 +150,5 @@
             "size": "XL"
         },
       ]
-    }
-  }
+ 
+  
