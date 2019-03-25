@@ -11,7 +11,7 @@ const Query = prismaObjectType({
 })
 const Mutation = prismaObjectType({
     name: 'Mutation',
-    definition: t => t.prismaFields(['createProduct'])
+    definition: t => t.prismaFields(['createProduct','updateProduct','deleteProduct'])
 })
 
 const schema = makePrismaSchema({
@@ -28,30 +28,9 @@ const schema = makePrismaSchema({
     },
 })
 
-// const typeDefs = `
-// type Query {
-//     info: String!
-// }
-// `
-
-// const resolvers = {
-//     Query: {
-//         info: () => `This is the API of SpaceX`
-//     }
-// }
-
-
-// const server = new GraphQLServer({
-//     typeDefs: 'datamodel.prisma',
-//     resolvers,
-//     context: { prisma }
-// })
-
 const server = new GraphQLServer({
     schema,
     context: { prisma }
-    // typeDefs,
-    // resolvers,
 })
 
 server.start(() => console.log('Server is running on http://localhost:4000'))

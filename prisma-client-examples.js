@@ -11,28 +11,20 @@ async function main() {
   const allProducts = await prisma.products()
   console.log(allProducts)
 
-  const user = await prisma
+  const product = await prisma
   .product({ id: 'cjsqtbyhu002o0839lmodshr9' })
   console.log(product)
 
-  const productsCalledBigHoodie = await prisma
-  .products({
-    where: {
-      name: 'Big Hoodie'
-    }
-  })ß
-  console.log(productssCalledBigHoodie)
-
-  const updatedProduct = await prisma
+  const updateProduct = await prisma
   .updateProduct({
     where: { id: 'cjsqtzafr003u0839o2yw0kzf' },
     data: { name: 'Biggie' }
   })
-  console.log(updatedProduct)
+  console.log(updateProduct)
 
-  const deletedProduct = await prisma
+  const deleteProduct = await prisma
   .deleteProduct({ id: 'cjsqtf58800370839sihzdlpz' })
-  console.log(deletedProduct)
+  console.log(deleteProduct)
 }
 
 main().catch(e => console.error(e))

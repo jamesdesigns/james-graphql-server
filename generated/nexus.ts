@@ -17,6 +17,12 @@ export interface NexusGenInputs {
     price: number; // Float!
     size: string; // String!
   }
+  ProductUpdateInput: { // input type
+    color?: string | null; // String
+    name?: string | null; // String
+    price?: number | null; // Float
+    size?: string | null; // String
+  }
   ProductWhereUniqueInput: { // input type
     id?: string | null; // ID
   }
@@ -44,12 +50,15 @@ export interface NexusGenRootTypes {
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
   ProductCreateInput: NexusGenInputs['ProductCreateInput'];
+  ProductUpdateInput: NexusGenInputs['ProductUpdateInput'];
   ProductWhereUniqueInput: NexusGenInputs['ProductWhereUniqueInput'];
 }
 
 export interface NexusGenFieldTypes {
   Mutation: { // field return type
     createProduct: NexusGenRootTypes['Product']; // Product!
+    deleteProduct: NexusGenRootTypes['Product'] | null; // Product
+    updateProduct: NexusGenRootTypes['Product'] | null; // Product
   }
   Product: { // field return type
     color: string; // String!
@@ -68,6 +77,13 @@ export interface NexusGenArgTypes {
     createProduct: { // args
       data: NexusGenInputs['ProductCreateInput']; // ProductCreateInput!
     }
+    deleteProduct: { // args
+      where: NexusGenInputs['ProductWhereUniqueInput']; // ProductWhereUniqueInput!
+    }
+    updateProduct: { // args
+      data: NexusGenInputs['ProductUpdateInput']; // ProductUpdateInput!
+      where: NexusGenInputs['ProductWhereUniqueInput']; // ProductWhereUniqueInput!
+    }
   }
   Query: {
     product: { // args
@@ -83,7 +99,7 @@ export interface NexusGenInheritedFields {}
 
 export type NexusGenObjectNames = "Mutation" | "Product" | "Query";
 
-export type NexusGenInputNames = "ProductCreateInput" | "ProductWhereUniqueInput";
+export type NexusGenInputNames = "ProductCreateInput" | "ProductUpdateInput" | "ProductWhereUniqueInput";
 
 export type NexusGenEnumNames = never;
 

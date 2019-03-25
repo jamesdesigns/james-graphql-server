@@ -12,13 +12,6 @@ async function main() {
   // Read all existing products and print them out to the console
   const allProducts = await prisma.products()
   console.log(allProducts)
-
-  // Read the previously created user from the database and print their posts to the console
-  // const postsByUser = await prisma
-  //   .user({ email: "james@prisma.io" })
-  //   .posts()
-  // console.log(`All posts by that user: ${JSON.stringify(postsByUser)}`)
-
 }
 
 main().catch(e => console.error(e))

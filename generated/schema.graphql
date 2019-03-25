@@ -4,6 +4,8 @@
 
 type Mutation {
   createProduct(data: ProductCreateInput!): Product!
+  deleteProduct(where: ProductWhereUniqueInput!): Product
+  updateProduct(data: ProductUpdateInput!, where: ProductWhereUniqueInput!): Product
 }
 
 type Product {
@@ -19,6 +21,13 @@ input ProductCreateInput {
   name: String!
   price: Float!
   size: String!
+}
+
+input ProductUpdateInput {
+  color: String
+  name: String
+  price: Float
+  size: String
 }
 
 input ProductWhereUniqueInput {

@@ -148,7 +148,7 @@ module.exports.spacexproducts= [
             "price": 120,
             "color": "White",
             "size": "XL"
-        },
+        }
       ]
  
   
