@@ -2,10 +2,468 @@
 ### Do not make changes to this file directly
 
 
+type AggregateComment {
+  count: Int!
+}
+
+type AggregatePost {
+  count: Int!
+}
+
+type AggregateProduct {
+  count: Int!
+}
+
+type AggregateUser {
+  count: Int!
+}
+
+type BatchPayload {
+  count: Long!
+}
+
+type Comment {
+  bodyText: String!
+  createdAt: DateTime!
+  createdBy: User
+  id: ID!
+  updatedAt: DateTime!
+}
+
+type CommentConnection {
+  aggregate: AggregateComment!
+  edges: [CommentEdge!]!
+  pageInfo: PageInfo!
+}
+
+input CommentCreateInput {
+  bodyText: String!
+  createdBy: UserCreateOneInput
+}
+
+input CommentCreateManyInput {
+  connect: [CommentWhereUniqueInput!]
+  create: [CommentCreateInput!]
+}
+
+type CommentEdge {
+  cursor: String!
+  node: Comment!
+}
+
+enum CommentOrderByInput {
+  bodyText_ASC
+  bodyText_DESC
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input CommentScalarWhereInput {
+  AND: [CommentScalarWhereInput!]
+  bodyText: String
+  bodyText_contains: String
+  bodyText_ends_with: String
+  bodyText_gt: String
+  bodyText_gte: String
+  bodyText_in: [String!]
+  bodyText_lt: String
+  bodyText_lte: String
+  bodyText_not: String
+  bodyText_not_contains: String
+  bodyText_not_ends_with: String
+  bodyText_not_in: [String!]
+  bodyText_not_starts_with: String
+  bodyText_starts_with: String
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  NOT: [CommentScalarWhereInput!]
+  OR: [CommentScalarWhereInput!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
+
+input CommentUpdateDataInput {
+  bodyText: String
+  createdBy: UserUpdateOneInput
+}
+
+input CommentUpdateInput {
+  bodyText: String
+  createdBy: UserUpdateOneInput
+}
+
+input CommentUpdateManyDataInput {
+  bodyText: String
+}
+
+input CommentUpdateManyInput {
+  connect: [CommentWhereUniqueInput!]
+  create: [CommentCreateInput!]
+  delete: [CommentWhereUniqueInput!]
+  deleteMany: [CommentScalarWhereInput!]
+  disconnect: [CommentWhereUniqueInput!]
+  set: [CommentWhereUniqueInput!]
+  update: [CommentUpdateWithWhereUniqueNestedInput!]
+  updateMany: [CommentUpdateManyWithWhereNestedInput!]
+  upsert: [CommentUpsertWithWhereUniqueNestedInput!]
+}
+
+input CommentUpdateManyMutationInput {
+  bodyText: String
+}
+
+input CommentUpdateManyWithWhereNestedInput {
+  data: CommentUpdateManyDataInput!
+  where: CommentScalarWhereInput!
+}
+
+input CommentUpdateWithWhereUniqueNestedInput {
+  data: CommentUpdateDataInput!
+  where: CommentWhereUniqueInput!
+}
+
+input CommentUpsertWithWhereUniqueNestedInput {
+  create: CommentCreateInput!
+  update: CommentUpdateDataInput!
+  where: CommentWhereUniqueInput!
+}
+
+input CommentWhereInput {
+  AND: [CommentWhereInput!]
+  bodyText: String
+  bodyText_contains: String
+  bodyText_ends_with: String
+  bodyText_gt: String
+  bodyText_gte: String
+  bodyText_in: [String!]
+  bodyText_lt: String
+  bodyText_lte: String
+  bodyText_not: String
+  bodyText_not_contains: String
+  bodyText_not_ends_with: String
+  bodyText_not_in: [String!]
+  bodyText_not_starts_with: String
+  bodyText_starts_with: String
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
+  createdBy: UserWhereInput
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  NOT: [CommentWhereInput!]
+  OR: [CommentWhereInput!]
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
+
+input CommentWhereUniqueInput {
+  id: ID
+}
+
+scalar DateTime
+
+scalar Long
+
 type Mutation {
+  createComment(data: CommentCreateInput!): Comment!
+  createPost(data: PostCreateInput!): Post!
   createProduct(data: ProductCreateInput!): Product!
+  createUser(data: UserCreateInput!): User!
+  deleteComment(where: CommentWhereUniqueInput!): Comment
+  deleteManyComments(where: CommentWhereInput): BatchPayload!
+  deleteManyPosts(where: PostWhereInput): BatchPayload!
+  deleteManyProducts(where: ProductWhereInput): BatchPayload!
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+  deletePost(where: PostWhereUniqueInput!): Post
   deleteProduct(where: ProductWhereUniqueInput!): Product
+  deleteUser(where: UserWhereUniqueInput!): User
+  updateComment(data: CommentUpdateInput!, where: CommentWhereUniqueInput!): Comment
+  updateManyComments(data: CommentUpdateManyMutationInput!, where: CommentWhereInput): BatchPayload!
+  updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
+  updateManyProducts(data: ProductUpdateManyMutationInput!, where: ProductWhereInput): BatchPayload!
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
   updateProduct(data: ProductUpdateInput!, where: ProductWhereUniqueInput!): Product
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  upsertComment(create: CommentCreateInput!, update: CommentUpdateInput!, where: CommentWhereUniqueInput!): Comment!
+  upsertPost(create: PostCreateInput!, update: PostUpdateInput!, where: PostWhereUniqueInput!): Post!
+  upsertProduct(create: ProductCreateInput!, update: ProductUpdateInput!, where: ProductWhereUniqueInput!): Product!
+  upsertUser(create: UserCreateInput!, update: UserUpdateInput!, where: UserWhereUniqueInput!): User!
+}
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+}
+
+type Post {
+  author: User
+  comments(after: String, before: String, first: Int, last: Int, orderBy: CommentOrderByInput, skip: Int, where: CommentWhereInput): [Comment!]
+  createdAt: DateTime!
+  id: ID!
+  published: Boolean!
+  title: String!
+  updatedAt: DateTime!
+}
+
+type PostConnection {
+  aggregate: AggregatePost!
+  edges: [PostEdge!]!
+  pageInfo: PageInfo!
+}
+
+input PostCreateInput {
+  author: UserCreateOneWithoutPostsInput
+  comments: CommentCreateManyInput
+  published: Boolean
+  title: String!
+}
+
+input PostCreateManyWithoutAuthorInput {
+  connect: [PostWhereUniqueInput!]
+  create: [PostCreateWithoutAuthorInput!]
+}
+
+input PostCreateWithoutAuthorInput {
+  comments: CommentCreateManyInput
+  published: Boolean
+  title: String!
+}
+
+type PostEdge {
+  cursor: String!
+  node: Post!
+}
+
+enum PostOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  published_ASC
+  published_DESC
+  title_ASC
+  title_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input PostScalarWhereInput {
+  AND: [PostScalarWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  NOT: [PostScalarWhereInput!]
+  OR: [PostScalarWhereInput!]
+  published: Boolean
+  published_not: Boolean
+  title: String
+  title_contains: String
+  title_ends_with: String
+  title_gt: String
+  title_gte: String
+  title_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_not: String
+  title_not_contains: String
+  title_not_ends_with: String
+  title_not_in: [String!]
+  title_not_starts_with: String
+  title_starts_with: String
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
+
+input PostUpdateInput {
+  author: UserUpdateOneWithoutPostsInput
+  comments: CommentUpdateManyInput
+  published: Boolean
+  title: String
+}
+
+input PostUpdateManyDataInput {
+  published: Boolean
+  title: String
+}
+
+input PostUpdateManyMutationInput {
+  published: Boolean
+  title: String
+}
+
+input PostUpdateManyWithoutAuthorInput {
+  connect: [PostWhereUniqueInput!]
+  create: [PostCreateWithoutAuthorInput!]
+  delete: [PostWhereUniqueInput!]
+  deleteMany: [PostScalarWhereInput!]
+  disconnect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
+  updateMany: [PostUpdateManyWithWhereNestedInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
+}
+
+input PostUpdateManyWithWhereNestedInput {
+  data: PostUpdateManyDataInput!
+  where: PostScalarWhereInput!
+}
+
+input PostUpdateWithoutAuthorDataInput {
+  comments: CommentUpdateManyInput
+  published: Boolean
+  title: String
+}
+
+input PostUpdateWithWhereUniqueWithoutAuthorInput {
+  data: PostUpdateWithoutAuthorDataInput!
+  where: PostWhereUniqueInput!
+}
+
+input PostUpsertWithWhereUniqueWithoutAuthorInput {
+  create: PostCreateWithoutAuthorInput!
+  update: PostUpdateWithoutAuthorDataInput!
+  where: PostWhereUniqueInput!
+}
+
+input PostWhereInput {
+  AND: [PostWhereInput!]
+  author: UserWhereInput
+  comments_every: CommentWhereInput
+  comments_none: CommentWhereInput
+  comments_some: CommentWhereInput
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  NOT: [PostWhereInput!]
+  OR: [PostWhereInput!]
+  published: Boolean
+  published_not: Boolean
+  title: String
+  title_contains: String
+  title_ends_with: String
+  title_gt: String
+  title_gte: String
+  title_in: [String!]
+  title_lt: String
+  title_lte: String
+  title_not: String
+  title_not_contains: String
+  title_not_ends_with: String
+  title_not_in: [String!]
+  title_not_starts_with: String
+  title_starts_with: String
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
+
+input PostWhereUniqueInput {
+  id: ID
 }
 
 type Product {
@@ -16,11 +474,39 @@ type Product {
   size: String!
 }
 
+type ProductConnection {
+  aggregate: AggregateProduct!
+  edges: [ProductEdge!]!
+  pageInfo: PageInfo!
+}
+
 input ProductCreateInput {
   color: String!
   name: String!
   price: Float!
   size: String!
+}
+
+type ProductEdge {
+  cursor: String!
+  node: Product!
+}
+
+enum ProductOrderByInput {
+  color_ASC
+  color_DESC
+  createdAt_ASC
+  createdAt_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  price_ASC
+  price_DESC
+  size_ASC
+  size_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 input ProductUpdateInput {
@@ -30,10 +516,274 @@ input ProductUpdateInput {
   size: String
 }
 
+input ProductUpdateManyMutationInput {
+  color: String
+  name: String
+  price: Float
+  size: String
+}
+
+input ProductWhereInput {
+  AND: [ProductWhereInput!]
+  color: String
+  color_contains: String
+  color_ends_with: String
+  color_gt: String
+  color_gte: String
+  color_in: [String!]
+  color_lt: String
+  color_lte: String
+  color_not: String
+  color_not_contains: String
+  color_not_ends_with: String
+  color_not_in: [String!]
+  color_not_starts_with: String
+  color_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [ProductWhereInput!]
+  OR: [ProductWhereInput!]
+  price: Float
+  price_gt: Float
+  price_gte: Float
+  price_in: [Float!]
+  price_lt: Float
+  price_lte: Float
+  price_not: Float
+  price_not_in: [Float!]
+  size: String
+  size_contains: String
+  size_ends_with: String
+  size_gt: String
+  size_gte: String
+  size_in: [String!]
+  size_lt: String
+  size_lte: String
+  size_not: String
+  size_not_contains: String
+  size_not_ends_with: String
+  size_not_in: [String!]
+  size_not_starts_with: String
+  size_starts_with: String
+}
+
 input ProductWhereUniqueInput {
   id: ID
 }
 
 type Query {
+  comment(where: CommentWhereUniqueInput!): Comment
+  comments(after: String, before: String, first: Int, last: Int, orderBy: CommentOrderByInput, skip: Int, where: CommentWhereInput): [Comment!]!
+  commentsConnection(after: String, before: String, first: Int, last: Int, orderBy: CommentOrderByInput, skip: Int, where: CommentWhereInput): CommentConnection!
+  post(where: PostWhereUniqueInput!): Post
+  posts(after: String, before: String, first: Int, last: Int, orderBy: PostOrderByInput, skip: Int, where: PostWhereInput): [Post!]!
+  postsConnection(after: String, before: String, first: Int, last: Int, orderBy: PostOrderByInput, skip: Int, where: PostWhereInput): PostConnection!
   product(where: ProductWhereUniqueInput!): Product
+  products(after: String, before: String, first: Int, last: Int, orderBy: ProductOrderByInput, skip: Int, where: ProductWhereInput): [Product!]!
+  productsConnection(after: String, before: String, first: Int, last: Int, orderBy: ProductOrderByInput, skip: Int, where: ProductWhereInput): ProductConnection!
+  user(where: UserWhereUniqueInput!): User
+  users(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): [User!]!
+  usersConnection(after: String, before: String, first: Int, last: Int, orderBy: UserOrderByInput, skip: Int, where: UserWhereInput): UserConnection!
+}
+
+type User {
+  createdAt: DateTime!
+  email: String
+  id: ID!
+  name: String!
+  posts(after: String, before: String, first: Int, last: Int, orderBy: PostOrderByInput, skip: Int, where: PostWhereInput): [Post!]
+  updatedAt: DateTime!
+}
+
+type UserConnection {
+  aggregate: AggregateUser!
+  edges: [UserEdge!]!
+  pageInfo: PageInfo!
+}
+
+input UserCreateInput {
+  email: String
+  name: String!
+  posts: PostCreateManyWithoutAuthorInput
+}
+
+input UserCreateOneInput {
+  connect: UserWhereUniqueInput
+  create: UserCreateInput
+}
+
+input UserCreateOneWithoutPostsInput {
+  connect: UserWhereUniqueInput
+  create: UserCreateWithoutPostsInput
+}
+
+input UserCreateWithoutPostsInput {
+  email: String
+  name: String!
+}
+
+type UserEdge {
+  cursor: String!
+  node: User!
+}
+
+enum UserOrderByInput {
+  createdAt_ASC
+  createdAt_DESC
+  email_ASC
+  email_DESC
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+input UserUpdateDataInput {
+  email: String
+  name: String
+  posts: PostUpdateManyWithoutAuthorInput
+}
+
+input UserUpdateInput {
+  email: String
+  name: String
+  posts: PostUpdateManyWithoutAuthorInput
+}
+
+input UserUpdateManyMutationInput {
+  email: String
+  name: String
+}
+
+input UserUpdateOneInput {
+  connect: UserWhereUniqueInput
+  create: UserCreateInput
+  delete: Boolean
+  disconnect: Boolean
+  update: UserUpdateDataInput
+  upsert: UserUpsertNestedInput
+}
+
+input UserUpdateOneWithoutPostsInput {
+  connect: UserWhereUniqueInput
+  create: UserCreateWithoutPostsInput
+  delete: Boolean
+  disconnect: Boolean
+  update: UserUpdateWithoutPostsDataInput
+  upsert: UserUpsertWithoutPostsInput
+}
+
+input UserUpdateWithoutPostsDataInput {
+  email: String
+  name: String
+}
+
+input UserUpsertNestedInput {
+  create: UserCreateInput!
+  update: UserUpdateDataInput!
+}
+
+input UserUpsertWithoutPostsInput {
+  create: UserCreateWithoutPostsInput!
+  update: UserUpdateWithoutPostsDataInput!
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
+  email: String
+  email_contains: String
+  email_ends_with: String
+  email_gt: String
+  email_gte: String
+  email_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_not: String
+  email_not_contains: String
+  email_not_ends_with: String
+  email_not_in: [String!]
+  email_not_starts_with: String
+  email_starts_with: String
+  id: ID
+  id_contains: ID
+  id_ends_with: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_not: ID
+  id_not_contains: ID
+  id_not_ends_with: ID
+  id_not_in: [ID!]
+  id_not_starts_with: ID
+  id_starts_with: ID
+  name: String
+  name_contains: String
+  name_ends_with: String
+  name_gt: String
+  name_gte: String
+  name_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_not: String
+  name_not_contains: String
+  name_not_ends_with: String
+  name_not_in: [String!]
+  name_not_starts_with: String
+  name_starts_with: String
+  NOT: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  posts_every: PostWhereInput
+  posts_none: PostWhereInput
+  posts_some: PostWhereInput
+  updatedAt: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_not: DateTime
+  updatedAt_not_in: [DateTime!]
+}
+
+input UserWhereUniqueInput {
+  email: String
+  id: ID
 }
