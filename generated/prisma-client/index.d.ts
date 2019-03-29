@@ -15,6 +15,7 @@ export type AtLeastOne<T, U = { [K in keyof T]: Pick<T, K> }> = Partial<T> &
 
 export interface Exists {
   product: (where?: ProductWhereInput) => Promise<boolean>;
+  launch: (where?: launchWhereInput) => Promise<boolean>;
 }
 
 export interface Node {}
@@ -59,6 +60,29 @@ export interface Prisma {
       last?: Int;
     }
   ) => ProductConnectionPromise;
+  launch: (where: launchWhereUniqueInput) => launchPromise;
+  launches: (
+    args?: {
+      where?: launchWhereInput;
+      orderBy?: launchOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => FragmentableArray<launch>;
+  launchesConnection: (
+    args?: {
+      where?: launchWhereInput;
+      orderBy?: launchOrderByInput;
+      skip?: Int;
+      after?: String;
+      before?: String;
+      first?: Int;
+      last?: Int;
+    }
+  ) => launchConnectionPromise;
   node: (args: { id: ID_Output }) => Node;
 
   /**
@@ -81,6 +105,22 @@ export interface Prisma {
   ) => ProductPromise;
   deleteProduct: (where: ProductWhereUniqueInput) => ProductPromise;
   deleteManyProducts: (where?: ProductWhereInput) => BatchPayloadPromise;
+  createlaunch: (data: launchCreateInput) => launchPromise;
+  updatelaunch: (
+    args: { data: launchUpdateInput; where: launchWhereUniqueInput }
+  ) => launchPromise;
+  updateManylaunches: (
+    args: { data: launchUpdateManyMutationInput; where?: launchWhereInput }
+  ) => BatchPayloadPromise;
+  upsertlaunch: (
+    args: {
+      where: launchWhereUniqueInput;
+      create: launchCreateInput;
+      update: launchUpdateInput;
+    }
+  ) => launchPromise;
+  deletelaunch: (where: launchWhereUniqueInput) => launchPromise;
+  deleteManylaunches: (where?: launchWhereInput) => BatchPayloadPromise;
 
   /**
    * Subscriptions
@@ -93,6 +133,9 @@ export interface Subscription {
   product: (
     where?: ProductSubscriptionWhereInput
   ) => ProductSubscriptionPayloadSubscription;
+  launch: (
+    where?: launchSubscriptionWhereInput
+  ) => launchSubscriptionPayloadSubscription;
 }
 
 export interface ClientConstructor<T> {
@@ -114,6 +157,22 @@ export type ProductOrderByInput =
   | "color_DESC"
   | "size_ASC"
   | "size_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type launchOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "mission_ASC"
+  | "mission_DESC"
+  | "details_ASC"
+  | "details_DESC"
+  | "Imagelink_ASC"
+  | "Imagelink_DESC"
+  | "price_ASC"
+  | "price_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -195,6 +254,80 @@ export interface ProductWhereInput {
   NOT?: ProductWhereInput[] | ProductWhereInput;
 }
 
+export type launchWhereUniqueInput = AtLeastOne<{
+  id: ID_Input;
+}>;
+
+export interface launchWhereInput {
+  id?: ID_Input;
+  id_not?: ID_Input;
+  id_in?: ID_Input[] | ID_Input;
+  id_not_in?: ID_Input[] | ID_Input;
+  id_lt?: ID_Input;
+  id_lte?: ID_Input;
+  id_gt?: ID_Input;
+  id_gte?: ID_Input;
+  id_contains?: ID_Input;
+  id_not_contains?: ID_Input;
+  id_starts_with?: ID_Input;
+  id_not_starts_with?: ID_Input;
+  id_ends_with?: ID_Input;
+  id_not_ends_with?: ID_Input;
+  mission?: String;
+  mission_not?: String;
+  mission_in?: String[] | String;
+  mission_not_in?: String[] | String;
+  mission_lt?: String;
+  mission_lte?: String;
+  mission_gt?: String;
+  mission_gte?: String;
+  mission_contains?: String;
+  mission_not_contains?: String;
+  mission_starts_with?: String;
+  mission_not_starts_with?: String;
+  mission_ends_with?: String;
+  mission_not_ends_with?: String;
+  details?: String;
+  details_not?: String;
+  details_in?: String[] | String;
+  details_not_in?: String[] | String;
+  details_lt?: String;
+  details_lte?: String;
+  details_gt?: String;
+  details_gte?: String;
+  details_contains?: String;
+  details_not_contains?: String;
+  details_starts_with?: String;
+  details_not_starts_with?: String;
+  details_ends_with?: String;
+  details_not_ends_with?: String;
+  Imagelink?: String;
+  Imagelink_not?: String;
+  Imagelink_in?: String[] | String;
+  Imagelink_not_in?: String[] | String;
+  Imagelink_lt?: String;
+  Imagelink_lte?: String;
+  Imagelink_gt?: String;
+  Imagelink_gte?: String;
+  Imagelink_contains?: String;
+  Imagelink_not_contains?: String;
+  Imagelink_starts_with?: String;
+  Imagelink_not_starts_with?: String;
+  Imagelink_ends_with?: String;
+  Imagelink_not_ends_with?: String;
+  price?: Float;
+  price_not?: Float;
+  price_in?: Float[] | Float;
+  price_not_in?: Float[] | Float;
+  price_lt?: Float;
+  price_lte?: Float;
+  price_gt?: Float;
+  price_gte?: Float;
+  AND?: launchWhereInput[] | launchWhereInput;
+  OR?: launchWhereInput[] | launchWhereInput;
+  NOT?: launchWhereInput[] | launchWhereInput;
+}
+
 export interface ProductCreateInput {
   name: String;
   price: Float;
@@ -216,6 +349,27 @@ export interface ProductUpdateManyMutationInput {
   size?: String;
 }
 
+export interface launchCreateInput {
+  mission: String;
+  details: String;
+  Imagelink: String;
+  price: Float;
+}
+
+export interface launchUpdateInput {
+  mission?: String;
+  details?: String;
+  Imagelink?: String;
+  price?: Float;
+}
+
+export interface launchUpdateManyMutationInput {
+  mission?: String;
+  details?: String;
+  Imagelink?: String;
+  price?: Float;
+}
+
 export interface ProductSubscriptionWhereInput {
   mutation_in?: MutationType[] | MutationType;
   updatedFields_contains?: String;
@@ -225,6 +379,17 @@ export interface ProductSubscriptionWhereInput {
   AND?: ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput;
   OR?: ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput;
   NOT?: ProductSubscriptionWhereInput[] | ProductSubscriptionWhereInput;
+}
+
+export interface launchSubscriptionWhereInput {
+  mutation_in?: MutationType[] | MutationType;
+  updatedFields_contains?: String;
+  updatedFields_contains_every?: String[] | String;
+  updatedFields_contains_some?: String[] | String;
+  node?: launchWhereInput;
+  AND?: launchSubscriptionWhereInput[] | launchSubscriptionWhereInput;
+  OR?: launchSubscriptionWhereInput[] | launchSubscriptionWhereInput;
+  NOT?: launchSubscriptionWhereInput[] | launchSubscriptionWhereInput;
 }
 
 export interface NodeNode {
@@ -334,6 +499,86 @@ export interface AggregateProductSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface launch {
+  id: ID_Output;
+  mission: String;
+  details: String;
+  Imagelink: String;
+  price: Float;
+}
+
+export interface launchPromise extends Promise<launch>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  mission: () => Promise<String>;
+  details: () => Promise<String>;
+  Imagelink: () => Promise<String>;
+  price: () => Promise<Float>;
+}
+
+export interface launchSubscription
+  extends Promise<AsyncIterator<launch>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  mission: () => Promise<AsyncIterator<String>>;
+  details: () => Promise<AsyncIterator<String>>;
+  Imagelink: () => Promise<AsyncIterator<String>>;
+  price: () => Promise<AsyncIterator<Float>>;
+}
+
+export interface launchConnection {
+  pageInfo: PageInfo;
+  edges: launchEdge[];
+}
+
+export interface launchConnectionPromise
+  extends Promise<launchConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<launchEdge>>() => T;
+  aggregate: <T = AggregatelaunchPromise>() => T;
+}
+
+export interface launchConnectionSubscription
+  extends Promise<AsyncIterator<launchConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<launchEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatelaunchSubscription>() => T;
+}
+
+export interface launchEdge {
+  node: launch;
+  cursor: String;
+}
+
+export interface launchEdgePromise extends Promise<launchEdge>, Fragmentable {
+  node: <T = launchPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface launchEdgeSubscription
+  extends Promise<AsyncIterator<launchEdge>>,
+    Fragmentable {
+  node: <T = launchSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface Aggregatelaunch {
+  count: Int;
+}
+
+export interface AggregatelaunchPromise
+  extends Promise<Aggregatelaunch>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregatelaunchSubscription
+  extends Promise<AsyncIterator<Aggregatelaunch>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
 export interface BatchPayload {
   count: Long;
 }
@@ -403,6 +648,59 @@ export interface ProductPreviousValuesSubscription
   size: () => Promise<AsyncIterator<String>>;
 }
 
+export interface launchSubscriptionPayload {
+  mutation: MutationType;
+  node: launch;
+  updatedFields: String[];
+  previousValues: launchPreviousValues;
+}
+
+export interface launchSubscriptionPayloadPromise
+  extends Promise<launchSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = launchPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = launchPreviousValuesPromise>() => T;
+}
+
+export interface launchSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<launchSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = launchSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = launchPreviousValuesSubscription>() => T;
+}
+
+export interface launchPreviousValues {
+  id: ID_Output;
+  mission: String;
+  details: String;
+  Imagelink: String;
+  price: Float;
+}
+
+export interface launchPreviousValuesPromise
+  extends Promise<launchPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  mission: () => Promise<String>;
+  details: () => Promise<String>;
+  Imagelink: () => Promise<String>;
+  price: () => Promise<Float>;
+}
+
+export interface launchPreviousValuesSubscription
+  extends Promise<AsyncIterator<launchPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  mission: () => Promise<AsyncIterator<String>>;
+  details: () => Promise<AsyncIterator<String>>;
+  Imagelink: () => Promise<AsyncIterator<String>>;
+  price: () => Promise<AsyncIterator<Float>>;
+}
+
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
 */
@@ -438,6 +736,10 @@ export type Long = string;
 export const models: Model[] = [
   {
     name: "Product",
+    embedded: false
+  },
+  {
+    name: "launch",
     embedded: false
   }
 ];

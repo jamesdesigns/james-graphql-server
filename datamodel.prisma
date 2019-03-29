@@ -5,3 +5,11 @@ type Product {
   color: String!
   size: String!
 }
+
+type launch {
+  id: ID! @unique
+  mission: String!
+  details: String!
+  Imagelink: String!
+  price: Float!
+}

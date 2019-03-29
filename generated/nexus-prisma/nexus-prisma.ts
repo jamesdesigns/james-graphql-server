@@ -20,11 +20,17 @@ export interface NexusPrismaTypes {
       PageInfo: PageInfoObject
       ProductEdge: ProductEdgeObject
       AggregateProduct: AggregateProductObject
+      launch: launchObject
+      launchConnection: launchConnectionObject
+      launchEdge: launchEdgeObject
+      Aggregatelaunch: AggregatelaunchObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
       ProductSubscriptionPayload: ProductSubscriptionPayloadObject
       ProductPreviousValues: ProductPreviousValuesObject
+      launchSubscriptionPayload: launchSubscriptionPayloadObject
+      launchPreviousValues: launchPreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
@@ -33,25 +39,38 @@ export interface NexusPrismaTypes {
       PageInfo: PageInfoFieldDetails
       ProductEdge: ProductEdgeFieldDetails
       AggregateProduct: AggregateProductFieldDetails
+      launch: launchFieldDetails
+      launchConnection: launchConnectionFieldDetails
+      launchEdge: launchEdgeFieldDetails
+      Aggregatelaunch: AggregatelaunchFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
       ProductSubscriptionPayload: ProductSubscriptionPayloadFieldDetails
       ProductPreviousValues: ProductPreviousValuesFieldDetails
+      launchSubscriptionPayload: launchSubscriptionPayloadFieldDetails
+      launchPreviousValues: launchPreviousValuesFieldDetails
     }
   }
   inputTypes: {
     fields: {
       ProductWhereUniqueInput: ProductWhereUniqueInputInputObject
       ProductWhereInput: ProductWhereInputInputObject
+      launchWhereUniqueInput: launchWhereUniqueInputInputObject
+      launchWhereInput: launchWhereInputInputObject
       ProductCreateInput: ProductCreateInputInputObject
       ProductUpdateInput: ProductUpdateInputInputObject
       ProductUpdateManyMutationInput: ProductUpdateManyMutationInputInputObject
+      launchCreateInput: launchCreateInputInputObject
+      launchUpdateInput: launchUpdateInputInputObject
+      launchUpdateManyMutationInput: launchUpdateManyMutationInputInputObject
       ProductSubscriptionWhereInput: ProductSubscriptionWhereInputInputObject
+      launchSubscriptionWhereInput: launchSubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
     ProductOrderByInput: ProductOrderByInputValues,
+    launchOrderByInput: launchOrderByInputValues,
     MutationType: MutationTypeValues,
   }
 }
@@ -63,11 +82,17 @@ type QueryObject =
   | { name: 'product', args?: QueryProductArgs[] | false, alias?: string  } 
   | { name: 'products', args?: QueryProductsArgs[] | false, alias?: string  } 
   | { name: 'productsConnection', args?: QueryProductsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'launch', args?: QueryLaunchArgs[] | false, alias?: string  } 
+  | { name: 'launches', args?: QueryLaunchesArgs[] | false, alias?: string  } 
+  | { name: 'launchesConnection', args?: QueryLaunchesConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
   | 'product'
   | 'products'
   | 'productsConnection'
+  | 'launch'
+  | 'launches'
+  | 'launchesConnection'
 
 
 type QueryProductArgs =
@@ -81,6 +106,24 @@ type QueryProductsArgs =
   | 'first'
   | 'last'
 type QueryProductsConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryLaunchArgs =
+  | 'where'
+type QueryLaunchesArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryLaunchesConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -129,6 +172,45 @@ export interface QueryFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ProductConnection> | prisma.ProductConnection
+  }
+  launch: {
+    type: 'launch'
+    args: Record<QueryLaunchArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: launchWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.launch | null> | prisma.launch | null
+  }
+  launches: {
+    type: 'launch'
+    args: Record<QueryLaunchesArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: launchWhereInput | null, orderBy?: prisma.launchOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.launch[]> | prisma.launch[]
+  }
+  launchesConnection: {
+    type: 'launchConnection'
+    args: Record<QueryLaunchesConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: launchWhereInput | null, orderBy?: prisma.launchOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.launchConnection> | prisma.launchConnection
   }
 }
   
@@ -378,6 +460,196 @@ export interface AggregateProductFieldDetails {
 }
   
 
+// Types for launch
+
+type launchObject =
+  | launchFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'mission', args?: [] | false, alias?: string  } 
+  | { name: 'details', args?: [] | false, alias?: string  } 
+  | { name: 'Imagelink', args?: [] | false, alias?: string  } 
+  | { name: 'price', args?: [] | false, alias?: string  } 
+
+type launchFields =
+  | 'id'
+  | 'mission'
+  | 'details'
+  | 'Imagelink'
+  | 'price'
+
+
+
+  
+
+export interface launchFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  mission: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  details: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  Imagelink: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  price: {
+    type: 'Float'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for launchConnection
+
+type launchConnectionObject =
+  | launchConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type launchConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface launchConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"launchConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'launchEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"launchConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.launchEdge[]> | prisma.launchEdge[]
+  }
+  aggregate: {
+    type: 'Aggregatelaunch'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"launchConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Aggregatelaunch> | prisma.Aggregatelaunch
+  }
+}
+  
+
+// Types for launchEdge
+
+type launchEdgeObject =
+  | launchEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type launchEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface launchEdgeFieldDetails {
+  node: {
+    type: 'launch'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"launchEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.launch> | prisma.launch
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for Aggregatelaunch
+
+type AggregatelaunchObject =
+  | AggregatelaunchFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregatelaunchFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregatelaunchFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for Mutation
 
 type MutationObject =
@@ -388,6 +660,12 @@ type MutationObject =
   | { name: 'upsertProduct', args?: MutationUpsertProductArgs[] | false, alias?: string  } 
   | { name: 'deleteProduct', args?: MutationDeleteProductArgs[] | false, alias?: string  } 
   | { name: 'deleteManyProducts', args?: MutationDeleteManyProductsArgs[] | false, alias?: string  } 
+  | { name: 'createlaunch', args?: MutationCreatelaunchArgs[] | false, alias?: string  } 
+  | { name: 'updatelaunch', args?: MutationUpdatelaunchArgs[] | false, alias?: string  } 
+  | { name: 'updateManylaunches', args?: MutationUpdateManylaunchesArgs[] | false, alias?: string  } 
+  | { name: 'upsertlaunch', args?: MutationUpsertlaunchArgs[] | false, alias?: string  } 
+  | { name: 'deletelaunch', args?: MutationDeletelaunchArgs[] | false, alias?: string  } 
+  | { name: 'deleteManylaunches', args?: MutationDeleteManylaunchesArgs[] | false, alias?: string  } 
 
 type MutationFields =
   | 'createProduct'
@@ -396,6 +674,12 @@ type MutationFields =
   | 'upsertProduct'
   | 'deleteProduct'
   | 'deleteManyProducts'
+  | 'createlaunch'
+  | 'updatelaunch'
+  | 'updateManylaunches'
+  | 'upsertlaunch'
+  | 'deletelaunch'
+  | 'deleteManylaunches'
 
 
 type MutationCreateProductArgs =
@@ -413,6 +697,22 @@ type MutationUpsertProductArgs =
 type MutationDeleteProductArgs =
   | 'where'
 type MutationDeleteManyProductsArgs =
+  | 'where'
+type MutationCreatelaunchArgs =
+  | 'data'
+type MutationUpdatelaunchArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManylaunchesArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertlaunchArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeletelaunchArgs =
+  | 'where'
+type MutationDeleteManylaunchesArgs =
   | 'where'
   
 
@@ -495,6 +795,84 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
+  createlaunch: {
+    type: 'launch'
+    args: Record<MutationCreatelaunchArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: launchCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.launch> | prisma.launch
+  }
+  updatelaunch: {
+    type: 'launch'
+    args: Record<MutationUpdatelaunchArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: launchUpdateInput, where: launchWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.launch | null> | prisma.launch | null
+  }
+  updateManylaunches: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManylaunchesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: launchUpdateManyMutationInput, where?: launchWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertlaunch: {
+    type: 'launch'
+    args: Record<MutationUpsertlaunchArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: launchWhereUniqueInput, create: launchCreateInput, update: launchUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.launch> | prisma.launch
+  }
+  deletelaunch: {
+    type: 'launch'
+    args: Record<MutationDeletelaunchArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: launchWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.launch | null> | prisma.launch | null
+  }
+  deleteManylaunches: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManylaunchesArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: launchWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
 }
   
 
@@ -528,12 +906,16 @@ export interface BatchPayloadFieldDetails {
 type SubscriptionObject =
   | SubscriptionFields
   | { name: 'product', args?: SubscriptionProductArgs[] | false, alias?: string  } 
+  | { name: 'launch', args?: SubscriptionLaunchArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'product'
+  | 'launch'
 
 
 type SubscriptionProductArgs =
+  | 'where'
+type SubscriptionLaunchArgs =
   | 'where'
   
 
@@ -550,6 +932,19 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.ProductSubscriptionPayload | null> | prisma.ProductSubscriptionPayload | null
+  }
+  launch: {
+    type: 'launchSubscriptionPayload'
+    args: Record<SubscriptionLaunchArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: launchSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.launchSubscriptionPayload | null> | prisma.launchSubscriptionPayload | null
   }
 }
   
@@ -680,6 +1075,141 @@ export interface ProductPreviousValuesFieldDetails {
   }
   size: {
     type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for launchSubscriptionPayload
+
+type launchSubscriptionPayloadObject =
+  | launchSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type launchSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface launchSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"launchSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'launch'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"launchSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.launch | null> | prisma.launch | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'launchPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"launchSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.launchPreviousValues | null> | prisma.launchPreviousValues | null
+  }
+}
+  
+
+// Types for launchPreviousValues
+
+type launchPreviousValuesObject =
+  | launchPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'mission', args?: [] | false, alias?: string  } 
+  | { name: 'details', args?: [] | false, alias?: string  } 
+  | { name: 'Imagelink', args?: [] | false, alias?: string  } 
+  | { name: 'price', args?: [] | false, alias?: string  } 
+
+type launchPreviousValuesFields =
+  | 'id'
+  | 'mission'
+  | 'details'
+  | 'Imagelink'
+  | 'price'
+
+
+
+  
+
+export interface launchPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  mission: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  details: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  Imagelink: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  price: {
+    type: 'Float'
     args: {}
     description: string
     list: undefined
@@ -836,6 +1366,152 @@ export type ProductWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface launchWhereUniqueInput {
+  id?: string | null
+}
+export type launchWhereUniqueInputInputObject =
+  | Extract<keyof launchWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
+  
+export interface launchWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  mission?: string | null
+  mission_not?: string | null
+  mission_in?: string[]
+  mission_not_in?: string[]
+  mission_lt?: string | null
+  mission_lte?: string | null
+  mission_gt?: string | null
+  mission_gte?: string | null
+  mission_contains?: string | null
+  mission_not_contains?: string | null
+  mission_starts_with?: string | null
+  mission_not_starts_with?: string | null
+  mission_ends_with?: string | null
+  mission_not_ends_with?: string | null
+  details?: string | null
+  details_not?: string | null
+  details_in?: string[]
+  details_not_in?: string[]
+  details_lt?: string | null
+  details_lte?: string | null
+  details_gt?: string | null
+  details_gte?: string | null
+  details_contains?: string | null
+  details_not_contains?: string | null
+  details_starts_with?: string | null
+  details_not_starts_with?: string | null
+  details_ends_with?: string | null
+  details_not_ends_with?: string | null
+  Imagelink?: string | null
+  Imagelink_not?: string | null
+  Imagelink_in?: string[]
+  Imagelink_not_in?: string[]
+  Imagelink_lt?: string | null
+  Imagelink_lte?: string | null
+  Imagelink_gt?: string | null
+  Imagelink_gte?: string | null
+  Imagelink_contains?: string | null
+  Imagelink_not_contains?: string | null
+  Imagelink_starts_with?: string | null
+  Imagelink_not_starts_with?: string | null
+  Imagelink_ends_with?: string | null
+  Imagelink_not_ends_with?: string | null
+  price?: number | null
+  price_not?: number | null
+  price_in?: number[]
+  price_not_in?: number[]
+  price_lt?: number | null
+  price_lte?: number | null
+  price_gt?: number | null
+  price_gte?: number | null
+  AND?: launchWhereInput[]
+  OR?: launchWhereInput[]
+  NOT?: launchWhereInput[]
+}
+export type launchWhereInputInputObject =
+  | Extract<keyof launchWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'mission', alias?: string  } 
+  | { name: 'mission_not', alias?: string  } 
+  | { name: 'mission_in', alias?: string  } 
+  | { name: 'mission_not_in', alias?: string  } 
+  | { name: 'mission_lt', alias?: string  } 
+  | { name: 'mission_lte', alias?: string  } 
+  | { name: 'mission_gt', alias?: string  } 
+  | { name: 'mission_gte', alias?: string  } 
+  | { name: 'mission_contains', alias?: string  } 
+  | { name: 'mission_not_contains', alias?: string  } 
+  | { name: 'mission_starts_with', alias?: string  } 
+  | { name: 'mission_not_starts_with', alias?: string  } 
+  | { name: 'mission_ends_with', alias?: string  } 
+  | { name: 'mission_not_ends_with', alias?: string  } 
+  | { name: 'details', alias?: string  } 
+  | { name: 'details_not', alias?: string  } 
+  | { name: 'details_in', alias?: string  } 
+  | { name: 'details_not_in', alias?: string  } 
+  | { name: 'details_lt', alias?: string  } 
+  | { name: 'details_lte', alias?: string  } 
+  | { name: 'details_gt', alias?: string  } 
+  | { name: 'details_gte', alias?: string  } 
+  | { name: 'details_contains', alias?: string  } 
+  | { name: 'details_not_contains', alias?: string  } 
+  | { name: 'details_starts_with', alias?: string  } 
+  | { name: 'details_not_starts_with', alias?: string  } 
+  | { name: 'details_ends_with', alias?: string  } 
+  | { name: 'details_not_ends_with', alias?: string  } 
+  | { name: 'Imagelink', alias?: string  } 
+  | { name: 'Imagelink_not', alias?: string  } 
+  | { name: 'Imagelink_in', alias?: string  } 
+  | { name: 'Imagelink_not_in', alias?: string  } 
+  | { name: 'Imagelink_lt', alias?: string  } 
+  | { name: 'Imagelink_lte', alias?: string  } 
+  | { name: 'Imagelink_gt', alias?: string  } 
+  | { name: 'Imagelink_gte', alias?: string  } 
+  | { name: 'Imagelink_contains', alias?: string  } 
+  | { name: 'Imagelink_not_contains', alias?: string  } 
+  | { name: 'Imagelink_starts_with', alias?: string  } 
+  | { name: 'Imagelink_not_starts_with', alias?: string  } 
+  | { name: 'Imagelink_ends_with', alias?: string  } 
+  | { name: 'Imagelink_not_ends_with', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  | { name: 'price_not', alias?: string  } 
+  | { name: 'price_in', alias?: string  } 
+  | { name: 'price_not_in', alias?: string  } 
+  | { name: 'price_lt', alias?: string  } 
+  | { name: 'price_lte', alias?: string  } 
+  | { name: 'price_gt', alias?: string  } 
+  | { name: 'price_gte', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 export interface ProductCreateInput {
   name?: string
   price?: number
@@ -875,6 +1551,45 @@ export type ProductUpdateManyMutationInputInputObject =
   | { name: 'color', alias?: string  } 
   | { name: 'size', alias?: string  } 
   
+export interface launchCreateInput {
+  mission?: string
+  details?: string
+  Imagelink?: string
+  price?: number
+}
+export type launchCreateInputInputObject =
+  | Extract<keyof launchCreateInput, string>
+  | { name: 'mission', alias?: string  } 
+  | { name: 'details', alias?: string  } 
+  | { name: 'Imagelink', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  
+export interface launchUpdateInput {
+  mission?: string | null
+  details?: string | null
+  Imagelink?: string | null
+  price?: number | null
+}
+export type launchUpdateInputInputObject =
+  | Extract<keyof launchUpdateInput, string>
+  | { name: 'mission', alias?: string  } 
+  | { name: 'details', alias?: string  } 
+  | { name: 'Imagelink', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  
+export interface launchUpdateManyMutationInput {
+  mission?: string | null
+  details?: string | null
+  Imagelink?: string | null
+  price?: number | null
+}
+export type launchUpdateManyMutationInputInputObject =
+  | Extract<keyof launchUpdateManyMutationInput, string>
+  | { name: 'mission', alias?: string  } 
+  | { name: 'details', alias?: string  } 
+  | { name: 'Imagelink', alias?: string  } 
+  | { name: 'price', alias?: string  } 
+  
 export interface ProductSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
@@ -896,6 +1611,27 @@ export type ProductSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface launchSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: launchWhereInput | null
+  AND?: launchSubscriptionWhereInput[]
+  OR?: launchSubscriptionWhereInput[]
+  NOT?: launchSubscriptionWhereInput[]
+}
+export type launchSubscriptionWhereInputInputObject =
+  | Extract<keyof launchSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 
 export type ProductOrderByInputValues =
   | 'id_ASC'
@@ -908,6 +1644,22 @@ export type ProductOrderByInputValues =
   | 'color_DESC'
   | 'size_ASC'
   | 'size_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type launchOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'mission_ASC'
+  | 'mission_DESC'
+  | 'details_ASC'
+  | 'details_DESC'
+  | 'Imagelink_ASC'
+  | 'Imagelink_DESC'
+  | 'price_ASC'
+  | 'price_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

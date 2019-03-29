@@ -3,12 +3,173 @@ module.exports = {
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-/* GraphQL */ `type AggregateProduct {
+/* GraphQL */ `type Aggregatelaunch {
+  count: Int!
+}
+
+type AggregateProduct {
   count: Int!
 }
 
 type BatchPayload {
   count: Long!
+}
+
+type launch {
+  id: ID!
+  mission: String!
+  details: String!
+  Imagelink: String!
+  price: Float!
+}
+
+type launchConnection {
+  pageInfo: PageInfo!
+  edges: [launchEdge]!
+  aggregate: Aggregatelaunch!
+}
+
+input launchCreateInput {
+  mission: String!
+  details: String!
+  Imagelink: String!
+  price: Float!
+}
+
+type launchEdge {
+  node: launch!
+  cursor: String!
+}
+
+enum launchOrderByInput {
+  id_ASC
+  id_DESC
+  mission_ASC
+  mission_DESC
+  details_ASC
+  details_DESC
+  Imagelink_ASC
+  Imagelink_DESC
+  price_ASC
+  price_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type launchPreviousValues {
+  id: ID!
+  mission: String!
+  details: String!
+  Imagelink: String!
+  price: Float!
+}
+
+type launchSubscriptionPayload {
+  mutation: MutationType!
+  node: launch
+  updatedFields: [String!]
+  previousValues: launchPreviousValues
+}
+
+input launchSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: launchWhereInput
+  AND: [launchSubscriptionWhereInput!]
+  OR: [launchSubscriptionWhereInput!]
+  NOT: [launchSubscriptionWhereInput!]
+}
+
+input launchUpdateInput {
+  mission: String
+  details: String
+  Imagelink: String
+  price: Float
+}
+
+input launchUpdateManyMutationInput {
+  mission: String
+  details: String
+  Imagelink: String
+  price: Float
+}
+
+input launchWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  mission: String
+  mission_not: String
+  mission_in: [String!]
+  mission_not_in: [String!]
+  mission_lt: String
+  mission_lte: String
+  mission_gt: String
+  mission_gte: String
+  mission_contains: String
+  mission_not_contains: String
+  mission_starts_with: String
+  mission_not_starts_with: String
+  mission_ends_with: String
+  mission_not_ends_with: String
+  details: String
+  details_not: String
+  details_in: [String!]
+  details_not_in: [String!]
+  details_lt: String
+  details_lte: String
+  details_gt: String
+  details_gte: String
+  details_contains: String
+  details_not_contains: String
+  details_starts_with: String
+  details_not_starts_with: String
+  details_ends_with: String
+  details_not_ends_with: String
+  Imagelink: String
+  Imagelink_not: String
+  Imagelink_in: [String!]
+  Imagelink_not_in: [String!]
+  Imagelink_lt: String
+  Imagelink_lte: String
+  Imagelink_gt: String
+  Imagelink_gte: String
+  Imagelink_contains: String
+  Imagelink_not_contains: String
+  Imagelink_starts_with: String
+  Imagelink_not_starts_with: String
+  Imagelink_ends_with: String
+  Imagelink_not_ends_with: String
+  price: Float
+  price_not: Float
+  price_in: [Float!]
+  price_not_in: [Float!]
+  price_lt: Float
+  price_lte: Float
+  price_gt: Float
+  price_gte: Float
+  AND: [launchWhereInput!]
+  OR: [launchWhereInput!]
+  NOT: [launchWhereInput!]
+}
+
+input launchWhereUniqueInput {
+  id: ID
 }
 
 scalar Long
@@ -20,6 +181,12 @@ type Mutation {
   upsertProduct(where: ProductWhereUniqueInput!, create: ProductCreateInput!, update: ProductUpdateInput!): Product!
   deleteProduct(where: ProductWhereUniqueInput!): Product
   deleteManyProducts(where: ProductWhereInput): BatchPayload!
+  createlaunch(data: launchCreateInput!): launch!
+  updatelaunch(data: launchUpdateInput!, where: launchWhereUniqueInput!): launch
+  updateManylaunches(data: launchUpdateManyMutationInput!, where: launchWhereInput): BatchPayload!
+  upsertlaunch(where: launchWhereUniqueInput!, create: launchCreateInput!, update: launchUpdateInput!): launch!
+  deletelaunch(where: launchWhereUniqueInput!): launch
+  deleteManylaunches(where: launchWhereInput): BatchPayload!
 }
 
 enum MutationType {
@@ -200,11 +367,15 @@ type Query {
   product(where: ProductWhereUniqueInput!): Product
   products(where: ProductWhereInput, orderBy: ProductOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Product]!
   productsConnection(where: ProductWhereInput, orderBy: ProductOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ProductConnection!
+  launch(where: launchWhereUniqueInput!): launch
+  launches(where: launchWhereInput, orderBy: launchOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [launch]!
+  launchesConnection(where: launchWhereInput, orderBy: launchOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): launchConnection!
   node(id: ID!): Node
 }
 
 type Subscription {
   product(where: ProductSubscriptionWhereInput): ProductSubscriptionPayload
+  launch(where: launchSubscriptionWhereInput): launchSubscriptionPayload
 }
 `
       }
