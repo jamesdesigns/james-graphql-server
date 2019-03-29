@@ -1,10 +1,7 @@
-# GraphQL API Node Server
+# GraphQL Prisma Server
 
 ## SpaceX Retail Store
 A retail store that sells SpaceX clothing. 
-
-## Deployment 
-Deployed to Heroku.
 
 ## Routes
 
