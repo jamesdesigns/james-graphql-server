@@ -6,6 +6,7 @@
   "scripts": {
     "dockerStart": "docker-compose -f ./docker-compose.yml up -d",
     "deploy": "prisma deploy",
+    "load": "node ./seed/seedDatabase.js",
     "reset": "prisma reset --force",
     "delete": "prisma delete --force",
     "start": "ts-node-dev --no-notify --respawn --transpileOnly ./"
