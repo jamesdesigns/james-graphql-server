@@ -1,14 +1,3 @@
-type Query {
-  product(where: ProductCreateInput!): Product
-  products(where: ProductWhereUniqueInput!): [Product!]!
-}
-
-type Mutation {
-  createProduct(data: ProductCreateInput!): Product!
-  updateProduct(where: { id: ID!}, data: { name: String!, price: Float!, color: String!, size: String!}) { id }
-  deleteProduct(where: {id: ID!}) { id }
-}
-
 type Product {
   id: ID! @unique
   name: String! 
