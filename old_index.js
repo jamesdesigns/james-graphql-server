@@ -8,7 +8,8 @@ async function main() {
             name: product.name,
             price: product.price,
             color: product.color,
-            size: product.size
+            size: product.size,
+            imagelink: product.imagelink,
         })
         console.log(`Created new product: ${newProduct.name} (ID: ${newProduct.id})`)
     })
@@ -18,7 +19,8 @@ async function main() {
             name: product.name,
             price: product.price,
             color: product.color,
-            size: product.size
+            size: product.size,
+            imagelink: product.imagelink
         })
         console.log(`Updated new product: ${updateProduct.name} (ID: ${updateProduct.id})`)
     } )
