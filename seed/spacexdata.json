@@ -3,150 +3,176 @@
         "name": "Active Track Jacket",
         "price": 40,
         "color": "Black",
-        "size": "XL"
+        "size": "XL",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/s/p/spacex-logo-jacket.png"
     },
     {
         "name": "SpaceX Applique Hoodie",
         "price": 40,
         "color": "White",
-        "size": "XL"
+        "size": "XL",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/g/r/gray_applique_hoodie_4.png"
+
     },
     {
         "name": "Occupy Mars Hoodie",
         "price": 40,
         "color": "Black",
-        "size": "Large"
+        "size": "Large",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/o/c/occupy_mars_hoodie_front_1.png"
     },
     {
         "name": "Starman Pullover Hoodie",
-        "price": 40,
+        "price": 25,
         "color": "Black",
-        "size": "Medium"
+        "size": "Medium",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/s/t/starman_hoodie_front_1.png"
     },
     {
         "name": "SpaceX Vest",
         "price": 50,
         "color": "Gray",
-        "size": "Large"
+        "size": "Large",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/b/l/black_grey_men_s_vest_front.png"
     },
     {
-        "name": " FH Zipper Hoodie",
+        "name": "FH Zipper Hoodie",
         "price": 40,
         "color": "Dark Gray",
-        "size": "XL"
+        "size": "XL",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/2/0/2017_06_spacex_product-0027.png"
     },
     {
         "name": "Dragon Hoodie",
         "price": 40,
         "color": "Light Gray",
-        "size": "XL"
+        "size": "XL",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/g/r/gray_back_dragon_hoodie.png"
     },
     {
         "name": "Soft Shell Jacket",
         "price": 150,
         "color": "Black / Gray",
-        "size": "Large"
+        "size": "Large",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/s/p/spacex_mens_jacket-4675.png"
     },
     {
         "name": "SpaceX Moto Jacket",
         "price": 150,
         "color": "Dark Gray",
-        "size": "XL"
+        "size": "XL",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/s/p/spacex_moto_jacket_front_5v3a6231.png"
     },
     {
         "name": "F9 Zip Hoodie",
         "price": 40,
         "color": "Black / Red",
-        "size": "XL"
+        "size": "XL",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/b/l/black_f9_hoodie_back.png"
     },
     {
         "name": "Olympus Mons T-shirt",
         "price": 30,
         "color": "Navy Blue",
-        "size": "Large"
+        "size": "Large",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/s/p/spacex_tshirt_mens_olympus_mons_nvy_front-2931.png"
     },
     {
         "name": "Valles Marineris T-shirt",
         "price": 30,
         "color": "Dark Gray",
-        "size": "Medium"
+        "size": "Medium",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/s/p/spacex_tshirt_mens_valles_marineris_front-2955_copy.png"
     },
     {
         "name": "Phobos and Deimos T-shirt",
         "price": 30,
         "color": "Dark Gray",
-        "size": "Large"
+        "size": "Large",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/s/p/spacex_tshirt_mens_olympus_mons_blk_front-2886.png"
     },
     {
         "name": "FH Polo",
         "price": 32,
         "color": "Black",
-        "size": "Medium"
+        "size": "Medium",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/b/l/black_fh_polo.png"
     },
     {
         "name": "FH Long Sleeve",
         "price": 25,
         "color": "Black/Red",
-        "size": "Small"
+        "size": "Small",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/f/h/fh_long_sleeve_back_sml.png"
     },
     {
         "name": "Starship T-shirt",
         "price": 22,
         "color": "Black",
-        "size": "XL"
+        "size": "XL",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/b/f/bfr_mens_back-2.png"
     },
     {
         "name": "F9 First Stage T-shirt",
         "price": 22,
         "color": "Black",
-        "size": "XL"
+        "size": "XL",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/b/l/black_spacex_f9_first_stage_mens_back_1.png"
     },
     {
         "name": "SpaceX Foil V-neck",
         "price": 22,
         "color": "Black",
-        "size": "Small"
+        "size": "Small",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/b/l/black_womens_foil_vneck_1.png"
     },
     {
         "name": "Falcon 1 T-shirt",
         "price": 22,
         "color": "Gray",
-        "size": "Small"
+        "size": "Small",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/f/a/falcon_1_back_mens.png"
     },
     {
         "name": "Crew Dragon T-shirt",
         "price": 22,
         "color": "Navy Blue",
-        "size": "Large"
+        "size": "Large",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/n/a/navy_crew_dragon_front_new_logo.png"
     },
     {
         "name": "FH Mission Patch T-shirt",
         "price": 25,
         "color": "Blue",
-        "size": "XL"
+        "size": "XL",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/f/h/fh_mission_patch_mens_back_1.png"
     },
     {
         "name": "SpaceX Sweatshirt",
         "price": 30,
         "color": "Blue",
-        "size": "XL"
+        "size": "XL",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/b/l/black_spacex_sweatshirt_front.png"
     },
     {
         "name": "SpaceX Circle Graphic Hoodie",
         "price": 40,
         "color": "Light Gray",
-        "size": "Large"
+        "size": "Large",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/g/r/gray_circle_graphic_hoodie_front.png"
     },
     {
-        "name": "Active Booster Jacket",
-        "price": 90,
-        "color": "Red",
-        "size": "Medium"
+        "name": "SpaceX Track Jacket",
+        "price": 40,
+        "color": "Light Gray",
+        "size": "Medium",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/image/168x168/9df78eab33525d08d6e5fb8d27136e95/g/r/gray_heather_track.png"
     },
     {
-        "name": "Rocket Man Jacket",
-        "price": 120,
-        "color": "White",
-        "size": "XL"
+        "name": "SpaceX Ripley T-Shirt",
+        "price": 30,
+        "color": "Blue",
+        "size": "XL",
+        "imagelink": "https://pull01-spacexshop.netdna-ssl.com/media/catalog/product/cache/1/small_image/504x504/9df78eab33525d08d6e5fb8d27136e95/i/n/indigo_men_ripley_back_.png"
     }
 ]
