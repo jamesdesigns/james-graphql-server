@@ -4,6 +4,7 @@ type Product {
   price: Float!
   color: String!
   size: String!
+  imagelink: String!
 }
 
 type launch {

@@ -212,6 +212,7 @@ type Product {
   price: Float!
   color: String!
   size: String!
+  imagelink: String!
 }
 
 type ProductConnection {
@@ -225,6 +226,7 @@ input ProductCreateInput {
   price: Float!
   color: String!
   size: String!
+  imagelink: String!
 }
 
 type ProductEdge {
@@ -243,6 +245,8 @@ enum ProductOrderByInput {
   color_DESC
   size_ASC
   size_DESC
+  imagelink_ASC
+  imagelink_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -255,6 +259,7 @@ type ProductPreviousValues {
   price: Float!
   color: String!
   size: String!
+  imagelink: String!
 }
 
 type ProductSubscriptionPayload {
@@ -280,6 +285,7 @@ input ProductUpdateInput {
   price: Float
   color: String
   size: String
+  imagelink: String
 }
 
 input ProductUpdateManyMutationInput {
@@ -287,6 +293,7 @@ input ProductUpdateManyMutationInput {
   price: Float
   color: String
   size: String
+  imagelink: String
 }
 
 input ProductWhereInput {
@@ -354,6 +361,20 @@ input ProductWhereInput {
   size_not_starts_with: String
   size_ends_with: String
   size_not_ends_with: String
+  imagelink: String
+  imagelink_not: String
+  imagelink_in: [String!]
+  imagelink_not_in: [String!]
+  imagelink_lt: String
+  imagelink_lte: String
+  imagelink_gt: String
+  imagelink_gte: String
+  imagelink_contains: String
+  imagelink_not_contains: String
+  imagelink_starts_with: String
+  imagelink_not_starts_with: String
+  imagelink_ends_with: String
+  imagelink_not_ends_with: String
   AND: [ProductWhereInput!]
   OR: [ProductWhereInput!]
   NOT: [ProductWhereInput!]

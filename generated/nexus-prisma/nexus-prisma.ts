@@ -224,6 +224,7 @@ type ProductObject =
   | { name: 'price', args?: [] | false, alias?: string  } 
   | { name: 'color', args?: [] | false, alias?: string  } 
   | { name: 'size', args?: [] | false, alias?: string  } 
+  | { name: 'imagelink', args?: [] | false, alias?: string  } 
 
 type ProductFields =
   | 'id'
@@ -231,6 +232,7 @@ type ProductFields =
   | 'price'
   | 'color'
   | 'size'
+  | 'imagelink'
 
 
 
@@ -270,6 +272,14 @@ export interface ProductFieldDetails {
     resolve: undefined
   }
   size: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  imagelink: {
     type: 'String'
     args: {}
     description: string
@@ -1028,6 +1038,7 @@ type ProductPreviousValuesObject =
   | { name: 'price', args?: [] | false, alias?: string  } 
   | { name: 'color', args?: [] | false, alias?: string  } 
   | { name: 'size', args?: [] | false, alias?: string  } 
+  | { name: 'imagelink', args?: [] | false, alias?: string  } 
 
 type ProductPreviousValuesFields =
   | 'id'
@@ -1035,6 +1046,7 @@ type ProductPreviousValuesFields =
   | 'price'
   | 'color'
   | 'size'
+  | 'imagelink'
 
 
 
@@ -1074,6 +1086,14 @@ export interface ProductPreviousValuesFieldDetails {
     resolve: undefined
   }
   size: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  imagelink: {
     type: 'String'
     args: {}
     description: string
@@ -1292,6 +1312,20 @@ export interface ProductWhereInput {
   size_not_starts_with?: string | null
   size_ends_with?: string | null
   size_not_ends_with?: string | null
+  imagelink?: string | null
+  imagelink_not?: string | null
+  imagelink_in?: string[]
+  imagelink_not_in?: string[]
+  imagelink_lt?: string | null
+  imagelink_lte?: string | null
+  imagelink_gt?: string | null
+  imagelink_gte?: string | null
+  imagelink_contains?: string | null
+  imagelink_not_contains?: string | null
+  imagelink_starts_with?: string | null
+  imagelink_not_starts_with?: string | null
+  imagelink_ends_with?: string | null
+  imagelink_not_ends_with?: string | null
   AND?: ProductWhereInput[]
   OR?: ProductWhereInput[]
   NOT?: ProductWhereInput[]
@@ -1362,6 +1396,20 @@ export type ProductWhereInputInputObject =
   | { name: 'size_not_starts_with', alias?: string  } 
   | { name: 'size_ends_with', alias?: string  } 
   | { name: 'size_not_ends_with', alias?: string  } 
+  | { name: 'imagelink', alias?: string  } 
+  | { name: 'imagelink_not', alias?: string  } 
+  | { name: 'imagelink_in', alias?: string  } 
+  | { name: 'imagelink_not_in', alias?: string  } 
+  | { name: 'imagelink_lt', alias?: string  } 
+  | { name: 'imagelink_lte', alias?: string  } 
+  | { name: 'imagelink_gt', alias?: string  } 
+  | { name: 'imagelink_gte', alias?: string  } 
+  | { name: 'imagelink_contains', alias?: string  } 
+  | { name: 'imagelink_not_contains', alias?: string  } 
+  | { name: 'imagelink_starts_with', alias?: string  } 
+  | { name: 'imagelink_not_starts_with', alias?: string  } 
+  | { name: 'imagelink_ends_with', alias?: string  } 
+  | { name: 'imagelink_not_ends_with', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -1517,6 +1565,7 @@ export interface ProductCreateInput {
   price?: number
   color?: string
   size?: string
+  imagelink?: string
 }
 export type ProductCreateInputInputObject =
   | Extract<keyof ProductCreateInput, string>
@@ -1524,12 +1573,14 @@ export type ProductCreateInputInputObject =
   | { name: 'price', alias?: string  } 
   | { name: 'color', alias?: string  } 
   | { name: 'size', alias?: string  } 
+  | { name: 'imagelink', alias?: string  } 
   
 export interface ProductUpdateInput {
   name?: string | null
   price?: number | null
   color?: string | null
   size?: string | null
+  imagelink?: string | null
 }
 export type ProductUpdateInputInputObject =
   | Extract<keyof ProductUpdateInput, string>
@@ -1537,12 +1588,14 @@ export type ProductUpdateInputInputObject =
   | { name: 'price', alias?: string  } 
   | { name: 'color', alias?: string  } 
   | { name: 'size', alias?: string  } 
+  | { name: 'imagelink', alias?: string  } 
   
 export interface ProductUpdateManyMutationInput {
   name?: string | null
   price?: number | null
   color?: string | null
   size?: string | null
+  imagelink?: string | null
 }
 export type ProductUpdateManyMutationInputInputObject =
   | Extract<keyof ProductUpdateManyMutationInput, string>
@@ -1550,6 +1603,7 @@ export type ProductUpdateManyMutationInputInputObject =
   | { name: 'price', alias?: string  } 
   | { name: 'color', alias?: string  } 
   | { name: 'size', alias?: string  } 
+  | { name: 'imagelink', alias?: string  } 
   
 export interface launchCreateInput {
   mission?: string
@@ -1644,6 +1698,8 @@ export type ProductOrderByInputValues =
   | 'color_DESC'
   | 'size_ASC'
   | 'size_DESC'
+  | 'imagelink_ASC'
+  | 'imagelink_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'

@@ -157,6 +157,8 @@ export type ProductOrderByInput =
   | "color_DESC"
   | "size_ASC"
   | "size_DESC"
+  | "imagelink_ASC"
+  | "imagelink_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -249,6 +251,20 @@ export interface ProductWhereInput {
   size_not_starts_with?: String;
   size_ends_with?: String;
   size_not_ends_with?: String;
+  imagelink?: String;
+  imagelink_not?: String;
+  imagelink_in?: String[] | String;
+  imagelink_not_in?: String[] | String;
+  imagelink_lt?: String;
+  imagelink_lte?: String;
+  imagelink_gt?: String;
+  imagelink_gte?: String;
+  imagelink_contains?: String;
+  imagelink_not_contains?: String;
+  imagelink_starts_with?: String;
+  imagelink_not_starts_with?: String;
+  imagelink_ends_with?: String;
+  imagelink_not_ends_with?: String;
   AND?: ProductWhereInput[] | ProductWhereInput;
   OR?: ProductWhereInput[] | ProductWhereInput;
   NOT?: ProductWhereInput[] | ProductWhereInput;
@@ -333,6 +349,7 @@ export interface ProductCreateInput {
   price: Float;
   color: String;
   size: String;
+  imagelink: String;
 }
 
 export interface ProductUpdateInput {
@@ -340,6 +357,7 @@ export interface ProductUpdateInput {
   price?: Float;
   color?: String;
   size?: String;
+  imagelink?: String;
 }
 
 export interface ProductUpdateManyMutationInput {
@@ -347,6 +365,7 @@ export interface ProductUpdateManyMutationInput {
   price?: Float;
   color?: String;
   size?: String;
+  imagelink?: String;
 }
 
 export interface launchCreateInput {
@@ -402,6 +421,7 @@ export interface Product {
   price: Float;
   color: String;
   size: String;
+  imagelink: String;
 }
 
 export interface ProductPromise extends Promise<Product>, Fragmentable {
@@ -410,6 +430,7 @@ export interface ProductPromise extends Promise<Product>, Fragmentable {
   price: () => Promise<Float>;
   color: () => Promise<String>;
   size: () => Promise<String>;
+  imagelink: () => Promise<String>;
 }
 
 export interface ProductSubscription
@@ -420,6 +441,7 @@ export interface ProductSubscription
   price: () => Promise<AsyncIterator<Float>>;
   color: () => Promise<AsyncIterator<String>>;
   size: () => Promise<AsyncIterator<String>>;
+  imagelink: () => Promise<AsyncIterator<String>>;
 }
 
 export interface ProductConnection {
@@ -626,6 +648,7 @@ export interface ProductPreviousValues {
   price: Float;
   color: String;
   size: String;
+  imagelink: String;
 }
 
 export interface ProductPreviousValuesPromise
@@ -636,6 +659,7 @@ export interface ProductPreviousValuesPromise
   price: () => Promise<Float>;
   color: () => Promise<String>;
   size: () => Promise<String>;
+  imagelink: () => Promise<String>;
 }
 
 export interface ProductPreviousValuesSubscription
@@ -646,6 +670,7 @@ export interface ProductPreviousValuesSubscription
   price: () => Promise<AsyncIterator<Float>>;
   color: () => Promise<AsyncIterator<String>>;
   size: () => Promise<AsyncIterator<String>>;
+  imagelink: () => Promise<AsyncIterator<String>>;
 }
 
 export interface launchSubscriptionPayload {
