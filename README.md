@@ -4,12 +4,20 @@ The SpaceX datastore contains 25 items. This file can be found in the folder see
 #### Clone the SpaceX Repository:
 https://github.com/jamesdesigns/james-graphql-server
 
-## To start the server:
- 1. npm install
- 2. npm dockerStart
- 3. npm run deploy
+## Setup
+```bash
+cd 
+ ``` 
 
-## After deploying the GraphQL: 
+#### Run the following commands
+```bash
+ npm install
+ npm run dockerStart
+ npm run deploy
+ npm run start
+ npm run load
+ ```
+
 Enter localhost:4000 in the browser to test mutations
 
 ## Seed
@@ -101,7 +109,7 @@ mutation createProduct { createProduct(data: {
 ```bash
 mutation deleteProduct { 
     deleteProduct(where: {
-    id: "cjtxvlli2048808392ept1mhp"
+    id: "_ENTER_ID_"
  })
  {
     id
@@ -113,7 +121,7 @@ mutation deleteProduct {
 ```bash
 mutation updateProduct { 
     updateProduct(where: {
-    id: "cjtxuchtd042h08396zz023mm"
+    id: "_ENTER_ID_"
 },
 data: {
     name: "Musk Track Jacket",
