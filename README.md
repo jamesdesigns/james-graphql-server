@@ -10,7 +10,16 @@ Enter localhost:4466 in the browser to test mutations
 ## 3 Query Resolvers
 1. Read all products
 ```bash
-query allProducts { products { id name price color size imagelink } }
+query allProducts { 
+    products { 
+        id 
+        name 
+        price 
+        color 
+        size 
+        imagelink 
+      } 
+    }
 ```
 2. 
 
@@ -19,9 +28,9 @@ query allProducts { products { id name price color size imagelink } }
 1. Create a product
 ```bash
 mutation createProduct { createProduct(data: { 
-    name: "BigHoodie",
-    price: 40,
-    color: "Red",
+    name: "Musk T-shirt",
+    price: 30,
+    color: "Navy Blue",
     size: "XL",
     imagelink: "https://product-image.png"
     }
@@ -40,7 +49,7 @@ mutation createProduct { createProduct(data: {
 2. Delete a product
 ```bash
 mutation deleteProduct { deleteProduct(where: {
-    id: "__ENTER_ID__"
+    id: "cjtxvlli2048808392ept1mhp"
 })
  {
     id
@@ -51,12 +60,12 @@ mutation deleteProduct { deleteProduct(where: {
 3. Update a product
 ```bash
 mutation updateProduct { updateProduct(where: {
-    id: "__ENTER_ID__"
+    id: "cjtxuchtd042h08396zz023mm"
 },
 data: {
-    name: "BigHoodie T-shirt",
+    name: "Musk Track Jacket",
     price: 30,
-    color: "Gray",
+    color: "Light Gray",
     size: "Large",
     imagelink: "https://product-image-update.png"
 })
