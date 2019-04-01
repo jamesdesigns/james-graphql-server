@@ -20,7 +20,7 @@ cd
 Enter localhost:4000 in the browser to test mutations
 
 ## Seed
-This runs the script that loads the data
+This runs the script that loads all the data
 ```bash
 npm run load
 ```
