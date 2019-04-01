@@ -48,9 +48,10 @@ mutation createProduct { createProduct(data: {
 
 2. Delete a product
 ```bash
-mutation deleteProduct { deleteProduct(where: {
+mutation deleteProduct { 
+    deleteProduct(where: {
     id: "cjtxvlli2048808392ept1mhp"
-})
+ })
  {
     id
  }
