@@ -6,14 +6,14 @@ To start the server:
 
 Enter localhost:4466 in the browser to test mutations
 
-#### 3 Queries
+## 3 Queries
 1. Read all products
 ```bash
 query allProducts { products { id name price color size imagelink } }
 ```
 2. 
 
-#### 3 Mutations
+## 3 Mutations
 
 1. Create a product
 ```bash
