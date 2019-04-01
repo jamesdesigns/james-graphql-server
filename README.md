@@ -60,7 +60,8 @@ mutation deleteProduct {
 
 3. Update a product
 ```bash
-mutation updateProduct { updateProduct(where: {
+mutation updateProduct { 
+    updateProduct(where: {
     id: "cjtxuchtd042h08396zz023mm"
 },
 data: {
