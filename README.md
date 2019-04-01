@@ -9,7 +9,7 @@ The SpaceX datastore contains 25 items. This file can be found in the folder see
 Enter localhost:4466 in the browser to test mutations
 
 ## 3 Query Resolvers
-1. Read all products
+1. Find/Read all products
 ```bash
 query allProducts { 
     products { 
@@ -23,7 +23,7 @@ query allProducts {
     }
 ```
 
-2. Find and Read all products by type. For example, Read all products that are "Hoodies".
+2. Find/Read all products by type. For example, Read all products that are "Hoodies".
 ```bash
 query findProductByType { 
     product(where: { id: "1" }) {
