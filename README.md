@@ -23,7 +23,7 @@ query allProducts {
     }
 ```
 
-2. Find/Read all products by type. For example, Find all products that are "Hoodies".
+2. Find/Read all products by type (name, color, or size). For example, Find all products that contain "Hoodies".
 ```bash
 query findProductByType { 
     product(where: { id: "1" }) {
