@@ -1,12 +1,20 @@
 # SpaceX Product Prisma Server
 The SpaceX datastore contains 25 items. This file can be found in the folder seed/spacexdata.json file.
 
+## Clone my GitHub Repository:
+https://github.com/jamesdesigns/james-graphql-server
+
 ## To start the server:
  1. npm install
  2. npm dockerStart
  3. npm run deploy
 
-Enter localhost:4466 in the browser to test mutations
+## After deploying the GraphQL: 
+Enter localhost:4000 in the browser to test mutations
+
+## Seed
+This runs the script that loads the data
+- npm run load
 
 ## 3 Query Resolvers
 1. Find/Read all products
