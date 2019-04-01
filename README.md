@@ -84,12 +84,13 @@ query findProductByPrice {
 1. Create a product - (Enter the following information in the data:)
 ```bash
 mutation createProduct { 
-    createProduct(data: { 
-    name: "Musk T-shirt",
-    price: 30,
-    color: "Navy Blue",
-    size: "XL",
-    imagelink: "https://product-image.png"
+    createProduct(
+        data: { 
+            name: "Musk T-shirt",
+            price: 30,
+            color: "Navy Blue",
+            size: "XL",
+            imagelink: "https://product-image.png"
     }
 )
  {
