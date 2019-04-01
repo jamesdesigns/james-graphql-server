@@ -9,7 +9,8 @@ async function main() {
             name: spacex.name,
             price: spacex.price,
             color: spacex.color,
-            size: spacex.size
+            size: spacex.size,
+            imagelink: spacex.imagelink
           })    
     })
  console.log(`Created new product: ${newSpacex.name} (ID: ${newSpacex.id})`)
