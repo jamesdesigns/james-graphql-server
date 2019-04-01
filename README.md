@@ -1,4 +1,5 @@
 # SpaceX Product Prisma Server
+The SpaceX datastore contains 25 items. This can be found in seed/spacexdata.json file.
 
 To start the server:
  1. npm dockerStart
@@ -6,14 +7,14 @@ To start the server:
 
 Enter localhost:4466 in the browser to test mutations
 
-## 3 Queries
+## 3 Query Resolvers
 1. Read all products
 ```bash
 query allProducts { products { id name price color size imagelink } }
 ```
 2. 
 
-## 3 Mutations
+## 3 Mutation Resolvers
 
 1. Create a product
 ```bash
