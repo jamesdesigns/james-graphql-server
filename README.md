@@ -5,9 +5,7 @@ The SpaceX datastore contains 25 items. This file can be found in the folder see
 https://github.com/jamesdesigns/james-graphql-server
 
 ## Setup
-```bash
-cd 
- ``` 
+Be sure to cd into your new cloned project folder.
 
 #### Run the following commands
 ```bash
