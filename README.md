@@ -15,7 +15,6 @@ cd
  npm run dockerStart
  npm run deploy
  npm run start
- npm run load
  ```
 
 Enter localhost:4000 in the browser to test mutations
