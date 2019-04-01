@@ -41,7 +41,24 @@ query findProductByType {
     }
 ```
 
-3. Find and Read all products by 
+3. Find and Read all products by Price. For example, find product by price of $40. 
+```bash
+query findProductByPrice { 
+    product(where: { id: "1" }) {
+        price
+    }
+    productsConnection(where: {
+        price: 40
+    })
+    {
+        edges {
+            node {
+                price
+            }
+        }
+    }
+    }
+```
 
 ## 3 Mutation Resolvers
 
