@@ -14,7 +14,9 @@ Enter localhost:4000 in the browser to test mutations
 
 ## Seed
 This runs the script that loads the data
-- npm run load
+```bash
+npm run load
+```
 
 ## 3 Query Resolvers
 1. Find/Read all products
