@@ -1,7 +1,7 @@
 # SpaceX Product Prisma Server
-The SpaceX datastore contains 25 items. This can be found in seed/spacexdata.json file.
+The SpaceX datastore contains 25 items. This can be found in the folder seed/spacexdata.json file.
 
-To start the server:
+## To start the server:
  1. npm dockerStart
  2. npm run deploy
 
