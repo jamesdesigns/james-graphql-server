@@ -6,13 +6,57 @@ To start the server:
 
 Enter localhost:4466 in the browser to test mutations
 
+#### 3 Queries
+1. Read all products
+query allProducts { products { id name price color size imagelink } }
+2. 
 
+#### 3 Mutations
 
-## Routes
+1. Create a product
+mutation createProduct { createProduct(data: { 
+    name: "BigHoodie",
+    price: 40,
+    color: "Red",
+    size: "XL",
+    imagelink: "https://product-image.png"
+    }
+)
+ {
+    id
+    name
+    price
+    color
+    size
+    imagelink
+ }
+}
 
-#### Get All Products
+2. Delete a product
+mutation deleteProduct { deleteProduct(where: {
+    id: "__ENTER_ID__"
+})
+ {
+    id
+ }
+}
 
-* "/" - Get all products in the database
+3. Update a product
+mutation updateProduct { updateProduct(where: {
+    id: "__ENTER_ID__"
+},
+data: {
+    name: "BigHoodie T-shirt",
+    price: 30,
+    color: "Gray",
+    size: "Large",
+    imagelink: "https://product-image-update.png"
+})
+ {
+    id
+ }
+}
+
 
 #### Get Product by Name
 
@@ -37,10 +81,3 @@ color: product color,
 size: product size
 ```
 
-#### Update Product by id
-
-* "/:id/update" - Update a product with the specific id
-
-#### Delete Product by id
-
-* "/:id/delete" - Delete a product with the specific id
