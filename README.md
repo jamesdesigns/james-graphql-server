@@ -1,7 +1,12 @@
-# GraphQL Prisma Server
+# SpaceX Product Prisma Server
 
-## SpaceX Retail Store
-A retail store that sells SpaceX clothing. 
+To start the server:
+ 1. npm dockerStart
+ 2. npm run deploy
+
+Enter localhost:4466 in the browser to test mutations
+
+
 
 ## Routes
 
