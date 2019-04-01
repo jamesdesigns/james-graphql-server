@@ -35,6 +35,7 @@ query findProductByType {
     {
         edges {
             node {
+                id
                 name
             }
         }
@@ -42,7 +43,7 @@ query findProductByType {
     }
 ```
 
-3. Find and Read all products by price. For example, find product by price of $40. 
+3. Find/Read all products by price. For example, find product by price of $40. 
 ```bash
 query findProductByPrice { 
     product(where: { id: "1" }) {
@@ -54,6 +55,7 @@ query findProductByPrice {
     {
         edges {
             node {
+                id
                 price
             }
         }
@@ -111,6 +113,7 @@ data: {
 })
  {
     id
+    name
  }
 }
 ```
