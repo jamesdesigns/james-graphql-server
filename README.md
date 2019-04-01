@@ -21,7 +21,27 @@ query allProducts {
       } 
     }
 ```
-2. 
+
+2. Find and Read all products by type. For example, Read all products that are "Hoodies".
+```bash
+query findProductByType { 
+    product(where: { id: "1" }) {
+        name
+    }
+    productsConnection(where: {
+        name_contains: "Hoodie"
+    })
+    {
+        edges {
+            node {
+                name
+            }
+        }
+    }
+    }
+```
+
+3. Find and Read all products by 
 
 ## 3 Mutation Resolvers
 
