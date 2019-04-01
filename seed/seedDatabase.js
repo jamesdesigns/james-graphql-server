@@ -19,6 +19,11 @@ const mutation = `mutation createProduct(
     })
     {
       id
+      name
+      price
+      color
+      size
+      imagelink
     }
   }
 `
