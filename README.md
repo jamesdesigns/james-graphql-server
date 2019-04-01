@@ -1,7 +1,7 @@
 # SpaceX Product Prisma Server
 The SpaceX datastore contains 25 items. This file can be found in the folder seed/spacexdata.json file.
 
-## Clone my GitHub Repository:
+#### Clone my GitHub Repository:
 https://github.com/jamesdesigns/james-graphql-server
 
 ## To start the server:
