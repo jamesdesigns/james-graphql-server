@@ -56,6 +56,7 @@ query findProductByPrice {
         edges {
             node {
                 id
+                name
                 price
             }
         }
