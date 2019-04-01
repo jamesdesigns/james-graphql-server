@@ -83,7 +83,7 @@ query findProductByPrice {
 
 ## 3 Mutation Resolvers
 
-1. Create a product
+1. Create a product - (Enter the following information in the data:)
 ```bash
 mutation createProduct { createProduct(data: { 
     name: "Musk T-shirt",
@@ -104,7 +104,7 @@ mutation createProduct { createProduct(data: {
 }
 ```
 
-2. Delete a product
+2. Delete a product - (Enter an existing id and delete the product)
 ```bash
 mutation deleteProduct { 
     deleteProduct(where: {
@@ -116,7 +116,7 @@ mutation deleteProduct {
 }
 ```
 
-3. Update a product
+3. Update a product - (Enter an existing id and add the following information in the data:)
 ```bash
 mutation updateProduct { 
     updateProduct(where: {
