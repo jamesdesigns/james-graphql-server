@@ -15,14 +15,9 @@ Make sure you are in the new cloned project (james-graphql-server).
  npm install
  npm run dockerStart
  npm run deploy
+ npm run load
  npm run start
  ```
-
-## Seed
-This runs the script that loads all the SpaceX data.
-```bash
-npm run load
-```
 
 Enter localhost:4000 in the browser to test mutations
 
