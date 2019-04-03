@@ -1,4 +1,4 @@
-# SpaceX GraphQL Server
+# James GraphQL Server
 The SpaceX datastore currently contains 25 clothing items sold by SpaceX.
 
 #### Clone the SpaceX Repository:
