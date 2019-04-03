@@ -1,5 +1,5 @@
 # SpaceX Prisma Server
-The SpaceX datastore contains 25 items. This file can be found in the folder seed/spacexdata.json file.
+The SpaceX datastore currently contains 25 clothing items sold by SpaceX. 
 
 #### Clone the SpaceX Repository:
 https://github.com/jamesdesigns/james-graphql-server
