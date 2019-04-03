@@ -41,7 +41,7 @@ query allProducts {
     }
 ```
 
-2. Find/Read all products by name. For example, Find the name of all products that contain "Hoodie".
+2. Find/Read product by name. For example, Find the name of a product that contain "Hoodie". (You can also search for a "T-shirt")
 ```bash
 query findProductByType { 
     product(where: { id: "1" }) {
@@ -61,7 +61,7 @@ query findProductByType {
     }
 ```
 
-3. Find/Read all products by price. For example, find product by price of $40. 
+3. Find/Read any products by price. For example, find product(s) by price of $40. 
 ```bash
 query findProductByPrice { 
     product(where: { id: "1" }) {
@@ -111,7 +111,7 @@ mutation createProduct {
 ```bash
 mutation deleteProduct { 
     deleteProduct(where: {
-    id: "_ENTER_ID_"
+    id: "_ENTER_EXISTING_ID_"
  })
  {
     id
@@ -123,7 +123,7 @@ mutation deleteProduct {
 ```bash
 mutation updateProduct { 
     updateProduct(where: {
-    id: "_ENTER_ID_"
+    id: "_ENTER_EXISTING_ID_"
 },
 data: {
     name: "Musk Track Jacket",
