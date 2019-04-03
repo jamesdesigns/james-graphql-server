@@ -5,10 +5,11 @@ The SpaceX datastore currently contains 25 clothing items sold by SpaceX.
 https://github.com/jamesdesigns/james-graphql-server
 
 ## Setup
-Be sure to cd into your new cloned project folder.
+Make sure you cd into your new cloned project (james-graphql-server).
 
 #### Run the following commands
 ```bash
+ cd james-graphql-server
  npm install
  npm run dockerStart
  npm run deploy
