@@ -16,13 +16,13 @@ Make sure you cd into your new cloned project (james-graphql-server).
  npm run start
  ```
 
-Enter localhost:4000 in the browser to test mutations
-
 ## Seed
-This runs the script that loads all the data
+This runs the script that loads all the SpaceX data.
 ```bash
 npm run load
 ```
+
+Enter localhost:4000 in the browser to test mutations
 
 ## 3 Query Resolvers
 1. Find/Read all products
