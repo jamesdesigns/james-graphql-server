@@ -1,5 +1,5 @@
 # SpaceX Prisma Server
-The SpaceX datastore currently contains 25 clothing items sold by SpaceX. 
+The SpaceX datastore currently contains 25 clothing items sold by SpaceX. The data contains Hoodies and T-shirts.
 
 #### Clone the SpaceX Repository:
 https://github.com/jamesdesigns/james-graphql-server
@@ -41,7 +41,7 @@ query allProducts {
     }
 ```
 
-2. Find/Read product by name. For example, Find the name of a product that contain "Hoodie". (You can also search for a "T-shirt")
+2. Find/Read product(s) by type. For example, find the type of product that is a "Hoodie". (You can also search for a "T-shirt")
 ```bash
 query findProductByType { 
     product(where: { id: "1" }) {
