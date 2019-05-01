@@ -24,7 +24,7 @@ type Product {
   id: ID!
   imagelink: String!
   name: String!
-  price: Float!
+  price: Float
   size: String!
 }
 
@@ -38,7 +38,7 @@ input ProductCreateInput {
   color: String!
   imagelink: String!
   name: String!
-  price: Float!
+  price: Float
   size: String!
 }
 

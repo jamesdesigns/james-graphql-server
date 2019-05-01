@@ -260,7 +260,7 @@ export interface ProductFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: undefined
   }
   color: {
@@ -1074,7 +1074,7 @@ export interface ProductPreviousValuesFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: undefined
   }
   color: {
@@ -1562,7 +1562,7 @@ export type launchWhereInputInputObject =
   
 export interface ProductCreateInput {
   name?: string
-  price?: number
+  price?: number | null
   color?: string
   size?: string
   imagelink?: string

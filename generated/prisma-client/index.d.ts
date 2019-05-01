@@ -346,7 +346,7 @@ export interface launchWhereInput {
 
 export interface ProductCreateInput {
   name: String;
-  price: Float;
+  price?: Float;
   color: String;
   size: String;
   imagelink: String;
@@ -418,7 +418,7 @@ export interface NodeNode {
 export interface Product {
   id: ID_Output;
   name: String;
-  price: Float;
+  price?: Float;
   color: String;
   size: String;
   imagelink: String;
@@ -645,7 +645,7 @@ export interface ProductSubscriptionPayloadSubscription
 export interface ProductPreviousValues {
   id: ID_Output;
   name: String;
-  price: Float;
+  price?: Float;
   color: String;
   size: String;
   imagelink: String;

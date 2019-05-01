@@ -15,7 +15,7 @@ export interface NexusGenInputs {
     color: string; // String!
     imagelink: string; // String!
     name: string; // String!
-    price: number; // Float!
+    price?: number | null; // Float
     size: string; // String!
   }
   ProductUpdateInput: { // input type
@@ -133,7 +133,7 @@ export interface NexusGenRootTypes {
     id: string; // ID!
     imagelink: string; // String!
     name: string; // String!
-    price: number; // Float!
+    price?: number | null; // Float
     size: string; // String!
   }
   ProductConnection: { // root type
@@ -180,7 +180,7 @@ export interface NexusGenFieldTypes {
     id: string; // ID!
     imagelink: string; // String!
     name: string; // String!
-    price: number; // Float!
+    price: number | null; // Float
     size: string; // String!
   }
   ProductConnection: { // field return type

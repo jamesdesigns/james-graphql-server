@@ -1,7 +1,8 @@
 type Product {
   id: ID! @unique
   name: String! 
-  price: Float!
+  price: Float
+  
   color: String!
   size: String!
   imagelink: String!

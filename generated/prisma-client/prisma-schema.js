@@ -209,7 +209,7 @@ type PageInfo {
 type Product {
   id: ID!
   name: String!
-  price: Float!
+  price: Float
   color: String!
   size: String!
   imagelink: String!
@@ -223,7 +223,7 @@ type ProductConnection {
 
 input ProductCreateInput {
   name: String!
-  price: Float!
+  price: Float
   color: String!
   size: String!
   imagelink: String!
@@ -256,7 +256,7 @@ enum ProductOrderByInput {
 type ProductPreviousValues {
   id: ID!
   name: String!
-  price: Float!
+  price: Float
   color: String!
   size: String!
   imagelink: String!
